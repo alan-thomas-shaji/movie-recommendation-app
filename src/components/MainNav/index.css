@@ -1,0 +1,11 @@
+.bottom-nav {
+    position: fixed;
+    bottom: 10px;
+    /* left: 0%; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #2d313a;
+    box-shadow: 0 0 10px 0 black;
+    z-index: 100;
+}
