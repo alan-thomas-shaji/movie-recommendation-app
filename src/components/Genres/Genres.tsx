@@ -64,7 +64,7 @@ const Genres = (props: IGenresProps) => {
       ))}
       {props.genres.map((genre: IGenre) => (
         <Chip
-          style={{ margin: 2, backgroundColor: 'white' }}
+          style={{ margin: 2, padding: 10, fontSize: "1rem", backgroundColor: 'white' }}
           label={genre.name}
           key={genre.id}
           clickable

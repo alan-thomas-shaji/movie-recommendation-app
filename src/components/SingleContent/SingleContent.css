@@ -13,6 +13,8 @@
 .media:hover {
   background-color: white;
   color: black;
+  transition-duration: 0.2s;
+  transform:scale(1.01);
 }
 
 @media (max-width: 550px) {
