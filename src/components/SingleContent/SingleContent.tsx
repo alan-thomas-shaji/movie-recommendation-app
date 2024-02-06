@@ -1,7 +1,9 @@
-import React from 'react'
-import { img_300, unavailable } from '../../config';
-import './SingleContent.css'
-import { Badge } from '@mui/material';
+import React from "react";
+import { img_300, unavailable } from "../../config";
+import "./SingleContent.css";
+import { Badge } from "@mui/material";
+import ContentModal from "../ContentModal/ContentModal";
+import { useNavigate } from "react-router-dom";
 
 interface ISingleContentProps {
   id: any;
@@ -13,8 +15,13 @@ interface ISingleContentProps {
 }
 
 const SingleContent = (props: ISingleContentProps) => {
+    const navigate = useNavigate();
+    const handleNavigate = (id: string, media_type: string) => {
+        navigate(`/details/${media_type}/${id}`);
+    };
   return (
-    <div className="media">
+    //   <ContentModal media_type={props.media_type} id={props.id}>
+    <div className="media" onClick={()=> handleNavigate(props.id ,props.media_type)}>
       <Badge
         badgeContent={props.vote_average}
         color={props.vote_average > 6 ? "primary" : "secondary"}
@@ -24,13 +31,14 @@ const SingleContent = (props: ISingleContentProps) => {
         src={props.poster ? `${img_300}${props.poster}` : unavailable}
         alt={props.title}
       />
-      <b className="title">{props.title}</b>
+      <b className="title">{props.title.slice(0,20)}</b>
       <span className="subTitle">
         {props.media_type === "tv" ? "TV Series" : "Movie"}
         <span className="subTitle">{props.date}</span>
       </span>
     </div>
+    //   </ContentModal>
   );
-}
+};
 
-export default SingleContent
+export default SingleContent;

@@ -1,0 +1,153 @@
+/* .ContentContainer {
+    display: flex;
+    align-items: center;
+}
+
+.ContentModal__landscape {
+    object-fit: contain;
+    border-radius: 10px;
+    max-width: 100%; 
+    height: auto; 
+}
+
+.ContentModal__about {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    justify-content: end;
+    font-weight: 300;
+}
+
+.ContentModal__title {
+    height: 12%;
+    font-size: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 860px) {
+    .ContentContainer {
+        flex-direction: column;
+        align-items: stretch; 
+    }
+    .ContentModal__title{
+        font-size: 5vw;
+    }
+}
+
+.tags {
+    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.tags-title {
+    padding: 5px;
+} */
+
+.flex {
+  padding-left: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.link {
+  color: #9c27b0;
+}
+
+.ButtonContainer {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.details-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.image-container {
+  flex: 1;
+  max-width: 75%;
+  box-sizing: border-box;
+}
+
+.card-container {
+  flex: 1;
+  max-width: 75%;
+  box-sizing: border-box;
+}
+
+.ContentModal__landscape {
+  display: none;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.ContentModal__portrait {
+  display: block;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.ContentModal__about {
+  padding: 10px;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.ContentModal__title {
+  height: 12%;
+  font-size: 3vw;
+  padding-bottom: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 860px) {
+  .details-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ContentModal__title {
+    font-size: 5vw;
+  }
+  .ContentModal__portrait {
+    display: none;
+  }
+  .ContentModal__landscape {
+    display: block;
+  }
+}
+
+.tags {
+  padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+}
+
+.tags-title {
+  padding: 5px;
+}
+
+.tagline-container {
+  display: block;
+  color: rgb(168, 168, 168);
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
