@@ -12,7 +12,7 @@
 
 .media:hover {
   background-color: white;
-  color: black;
+  color: #282c34;
   transition-duration: 0.2s;
   transform:scale(1.01);
 }
