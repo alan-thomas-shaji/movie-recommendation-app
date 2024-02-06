@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SingleContent from "../../components/SingleContent/SingleContent";
+import './Trending.css'
 
 const Trending = () => {
   const [content, setContent] = useState([]);
@@ -17,16 +18,23 @@ const Trending = () => {
   }, []);
   return (
     <div>
-          <span className="pageTitle">Trending</span>
-          <div className="trending">
-              {
-                  content && content.map((contentItem: any) => (
-                      <div>
-                          <SingleContent />
-                      </div>
-                  ))
-              }
-          </div>
+      <span className="pageTitle">Trending</span>
+      <div className="trending">
+        {content &&
+          content.map((contentItem: any) => (
+            <div key={contentItem.id}>
+              <SingleContent
+                key={contentItem.id}
+                id={contentItem.id}
+                poster={contentItem.poster_path}
+                title={contentItem.title || contentItem.name}
+                date={contentItem.release_date}
+                media_type={contentItem.media_type}
+                vote_average={contentItem.vote_average}
+              />
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
