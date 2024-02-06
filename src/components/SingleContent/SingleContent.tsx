@@ -1,6 +1,7 @@
 import React from 'react'
 import { img_300, unavailable } from '../../config';
 import './SingleContent.css'
+import { Badge } from '@mui/material';
 
 interface ISingleContentProps {
   id: any;
@@ -13,7 +14,11 @@ interface ISingleContentProps {
 
 const SingleContent = (props: ISingleContentProps) => {
   return (
-    <div className='media'>
+    <div className="media">
+      <Badge
+        badgeContent={props.vote_average}
+        color={props.vote_average > 6 ? "primary" : "secondary"}
+      />
       <img
         className="poster"
         src={props.poster ? `${img_300}${props.poster}` : unavailable}
