@@ -5,6 +5,16 @@ import axios from "axios";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import './Search.css'
 
+interface IContentType {
+  id: string;
+  poster_path: string;
+  title: string;
+  name: string;
+  release_date: string;
+  media_type: string;
+  vote_average: number;
+}
+
 const Search = () => {
   const [type, setType] = useState(0);
   const [searchText, setSearchText] = useState("");
@@ -66,13 +76,13 @@ const Search = () => {
       </Tabs>
       <div className="trending">
         {content &&
-          content.map((c: any) => (
+          content.map((c: IContentType) => (
             <SingleContent
               key={c.id}
               id={c.id}
               poster={c.poster_path}
               title={c.title || c.name}
-              date={c.first_air_date || c.release_date}
+              date={c.release_date}
               media_type={type ? "tv" : "movie"}
               vote_average={c.vote_average}
             />

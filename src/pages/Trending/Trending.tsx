@@ -3,6 +3,16 @@ import React, { useEffect, useState } from "react";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import "./Trending.css";
 
+interface IContentType {
+  id: string;
+  poster_path: string;
+  title: string;
+  name: string;
+  release_date: string;
+  media_type: string;
+  vote_average: number;
+}
+
 const Trending = () => {
   const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
@@ -22,7 +32,7 @@ const Trending = () => {
       <span className="pageTitle">Trending</span>
       <div className="trending">
         {content &&
-          content.map((contentItem: any) => (
+          content.map((contentItem: IContentType) => (
             <div key={contentItem.id}>
               <SingleContent
                 key={contentItem.id}

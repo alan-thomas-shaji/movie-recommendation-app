@@ -6,12 +6,12 @@ import ContentModal from "../ContentModal/ContentModal";
 import { useNavigate } from "react-router-dom";
 
 interface ISingleContentProps {
-  id: any;
-  title: any;
-  poster: any;
-  date: any;
-  media_type: any;
-  vote_average: any;
+  id: string;
+  title: string;
+  poster: string;
+  date: string;
+  media_type: string;
+  vote_average: number;
 }
 
 const SingleContent = (props: ISingleContentProps) => {

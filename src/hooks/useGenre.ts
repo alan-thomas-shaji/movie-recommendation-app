@@ -1,4 +1,9 @@
-const useGenre = (selectedGenres: any[]) => {
+interface IGenre {
+  id: string;
+  name: string;
+}
+
+const useGenre = (selectedGenres: IGenre[]) => {
   if (selectedGenres.length < 1) return "";
 
   const GenreIds = selectedGenres.map((g) => g.id);

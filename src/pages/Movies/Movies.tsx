@@ -4,27 +4,42 @@ import useGenre from "../../hooks/useGenre";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import Genres from "../../components/Genres/Genres";
 
+interface IContentType {
+  id: string;
+  poster_path: string;
+  title: string;
+  name: string;
+  release_date: string;
+  media_type: string;
+  vote_average: number;
+}
+
+interface IGenre {
+  id: string;
+  name: string;
+}
+
 const Movies = () => {
-  const [genres, setGenres] = useState([]);
-  const [selectedGenres, setSelectedGenres] = useState([]);
-  const [page, setPage] = useState(1);
+  const [genres, setGenres] = useState<IGenre[]>([]);
+  const [selectedGenres, setSelectedGenres] = useState<IGenre[]>([]);
+  // const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
-  const [numOfPages, setNumOfPages] = useState();
+  // const [numOfPages, setNumOfPages] = useState();
   const genreforURL = useGenre(selectedGenres);
 
   const fetchMovies = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=${genreforURL}`
     );
     setContent(data.results);
-    setNumOfPages(data.total_pages);
+    // setNumOfPages(data.total_pages);
   };
 
   useEffect(() => {
     window.scroll(0, 0);
     fetchMovies();
     // eslint-disable-next-line
-  }, [genreforURL, page]);
+  }, [genreforURL]);
   return (
     <div>
       <span className="pageTitle">Discover Movies</span>
@@ -38,7 +53,7 @@ const Movies = () => {
       />
       <div className="trending">
         {content &&
-          content.map((contentItem: any) => (
+          content.map((contentItem: IContentType) => (
             <SingleContent
               key={contentItem.id}
               id={contentItem.id}

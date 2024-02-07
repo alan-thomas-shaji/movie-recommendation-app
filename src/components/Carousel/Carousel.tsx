@@ -7,13 +7,24 @@ import './Carousel.css'
 const handleDragStart = (e: any) => e.preventDefault();
 
 interface ICarouselProps {
-    id: any;
-    media_type: any;
+    id: string;
+    media_type: string;
+}
+
+interface IContentType {
+  id: string;
+  profile_path: string;
+  poster_path: string;
+  title: string;
+  name: string;
+  release_date: string;
+  media_type: string;
+  vote_average: number;
 }
 
 const Carousel = (props: ICarouselProps) => {
     const [credits, setCredits] = useState([]);
-    const items = credits.map((c: any) => (
+    const items = credits.map((c: IContentType) => (
       <div className="carouselItem">
         <img
           src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}

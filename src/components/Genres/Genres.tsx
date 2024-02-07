@@ -3,16 +3,16 @@ import axios from 'axios';
 import { useEffect } from 'react'
 
 interface IGenresProps {
-  selectedGenres: any[];
-  setSelectedGenres: (arg1: any) => void;
+  selectedGenres: IGenre[];
+  setSelectedGenres: (arg1: IGenre[]) => void;
   genres: IGenre[];
-  setGenres: (arg1: any) => void;
-  type: any;
+  setGenres: (arg1: IGenre[]) => void;
+  type: string;
   //   setPage: ()=> void;
 }
 
 interface IGenre {
-    id: any;
+    id: string;
     name: string;
 }
 

@@ -7,22 +7,56 @@ import LanguageIcon from "@mui/icons-material/Language";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import {
-  img_500,
-  unavailable,
-  unavailableLandscape,
-} from "../../config";
+import { img_500, unavailable, unavailableLandscape } from "../../config";
 import "./Details.css";
 
+interface IContentType {
+  id: string;
+  profile_path: string;
+  poster_path: string;
+  backdrop_path: string;
+  title: string;
+  overview: string;
+  homepage: string;
+  tagline: string;
+  name: string;
+  release_date: string;
+  runtime: string;
+  media_type: string;
+  vote_average: number;
+}
+
+interface IGenre {
+  id: string;
+  name: string;
+}
+
 const Details = () => {
-  const [content, setContent] = useState<any>({});
-  const [genres, setGenres] = useState([]);
-  const [video, setVideo] = useState();
+  const initialValueContent = {
+    id: "",
+    profile_path: "",
+    poster_path: "",
+    backdrop_path: "",
+    title: "",
+    name: "",
+    release_date: "",
+    tagline: "",
+    overview: "",
+    homepage: "",
+    media_type: "",
+    runtime: "",
+    vote_average: 0,
+  };
+  const [content, setContent] = useState<IContentType>(initialValueContent);
+  const [genres, setGenres] = useState<IGenre[]>([]);
+  const [video, setVideo] = useState<string>("");
   const { media_type, id } = useParams();
 
   const fetchData = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${
+        import.meta.env.VITE_API_KEY
+      }&language=en-US`
     );
 
     setContent(data);
@@ -32,7 +66,9 @@ const Details = () => {
 
   const fetchVideo = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${
+        import.meta.env.VITE_API_KEY
+      }&language=en-US`
     );
 
     setVideo(data.results[0]?.key);
@@ -72,7 +108,6 @@ const Details = () => {
           <span className="ContentModal__title">
             {content.name || content.title} (
             {(
-              content.first_air_date ||
               content.release_date ||
               "-----"
             ).substring(0, 4)}
@@ -127,7 +162,7 @@ const Details = () => {
         <div className="tags">
           <span className="tags-title">Tags</span>
           <div>
-            {genres.map((genre: any) => (
+            {genres.map((genre: IGenre) => (
               <Chip
                 style={{ margin: 2, backgroundColor: "white" }}
                 label={genre.name}
@@ -144,4 +179,3 @@ const Details = () => {
 };
 
 export default Details;
-
