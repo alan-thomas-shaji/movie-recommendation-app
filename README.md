@@ -19,3 +19,6 @@
 ## Trade-Offs
 - Favourites section yet to be implemented
 - React Query implementation to properly handle the state
+
+
+Live: https://main--react-movie-recommendation-app.netlify.app/
