@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { img_300, noPicture } from '../../config';
 import axios from 'axios';
 import AliceCarousel from 'react-alice-carousel';

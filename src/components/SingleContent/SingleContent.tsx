@@ -1,8 +1,6 @@
-import React from "react";
 import { img_300, unavailable } from "../../config";
 import "./SingleContent.css";
 import { Badge } from "@mui/material";
-import ContentModal from "../ContentModal/ContentModal";
 import { useNavigate } from "react-router-dom";
 
 interface ISingleContentProps {

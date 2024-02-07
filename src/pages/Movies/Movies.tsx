@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useGenre from "../../hooks/useGenre";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import Genres from "../../components/Genres/Genres";

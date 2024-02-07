@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import "./Trending.css";
 
@@ -14,13 +14,13 @@ interface IContentType {
 }
 
 const Trending = () => {
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/trending/all/day?api_key=${
         import.meta.env.VITE_API_KEY
-      }&page=${page}`
+      }`
     );
     setContent(data.results);
   };

@@ -1,6 +1,6 @@
 import { Button, Tab, Tabs, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import './Search.css'
@@ -20,7 +20,7 @@ const Search = () => {
   const [searchText, setSearchText] = useState("");
   const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
-  const [numOfPages, setNumOfPages] = useState();
+  // const [numOfPages, setNumOfPages] = useState();
 
   const fetchSearch = async () => {
     try {
@@ -30,7 +30,7 @@ const Search = () => {
         }&language=en-US&query=${searchText}&include_adult=false`
       );
       setContent(data.results);
-      setNumOfPages(data.total_pages);
+      // setNumOfPages(data.total_pages);
       // console.log(data);
     } catch (error) {
       console.error(error);
@@ -64,7 +64,7 @@ const Search = () => {
         value={type}
         indicatorColor="primary"
         textColor="primary"
-        onChange={(event, newValue) => {
+        onChange={(_event, newValue) => {
           setType(newValue);
           setPage(1);
         }}

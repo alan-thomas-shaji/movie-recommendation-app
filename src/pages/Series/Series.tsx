@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import useGenre from '../../hooks/useGenre';
 import Genres from '../../components/Genres/Genres';
 import SingleContent from '../../components/SingleContent/SingleContent';
@@ -24,7 +24,7 @@ const Series = () => {
     const [selectedGenres, setSelectedGenres] = useState<IGenre[]>([]);
     // const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
-    const [numOfPages, setNumOfPages] = useState();
+    // const [numOfPages, setNumOfPages] = useState();
     const genreforURL = useGenre(selectedGenres);
 
     const fetchSeries = async () => {
@@ -32,7 +32,7 @@ const Series = () => {
         `https://api.themoviedb.org/3/discover/tv?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=${genreforURL}`
       );
       setContent(data.results);
-      setNumOfPages(data.total_pages);
+      // setNumOfPages(data.total_pages);
       // console.log(data);
     };
 

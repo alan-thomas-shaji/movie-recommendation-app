@@ -1,7 +1,7 @@
-import { Backdrop, Button, Fade, Modal, makeStyles } from '@mui/material';
+import { Button, Fade, Modal } from '@mui/material';
 import YouTubeIcon from "@mui/icons-material/YouTube"
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { img_500, unavailable, unavailableLandscape } from '../../config';
 import Carousel from '../Carousel/Carousel';
 import './ContentModal.css'
